@@ -1,0 +1,32 @@
+Install MY SQL USING DOCKER COMPOSE FILE
+
+..............Install Docker and Docker compose...............
+
+..............Create docker-compose.yml file.................
+
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "33306:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: example
+
+................docker-compose up -d...........
+................Enable ports 3306 &&&& 33306 ..............
+...............http//ip:33306....................
+user name : root
+password  : example
